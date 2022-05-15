@@ -164,7 +164,7 @@
                                     <!-- Review -->
                                     <div class="flex-w flex-t p-b-68">
                                         <div class="wrap-pic-s size-109 bor0 of-hidden m-r-18 m-t-6">
-                                            <img src="images/avatar-01.jpg" alt="AVATAR">
+                                            <img src="../template/home/images/avatar-01.jpg" alt="AVATAR">
                                         </div>
 
                                         <div class="size-207">
