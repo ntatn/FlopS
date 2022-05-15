@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\UploadController;
 use App\Http\Controllers\Home\QuickViewController;
+use App\Http\Controllers\DetailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,4 +60,7 @@ Route::prefix('/')->group(function () {
     Route::get('quickview/{id}', [QuickViewController::class, 'show']);
     Route::get('activation/{token}',[LoginController::class,'active']);
     Route::get('/', [App\Http\Controllers\MainController::class, 'index'])->name('homepage');
+    Route::get('danh-muc/{id}-{slug}.html',[App\Http\Controllers\MenuController::class, 'index']);
+    Route::get('san-pham/{id}-{slug}.html',[DetailController::class, 'index']);
+    Route::post('add-cart',[App\Http\Controllers\CartController::class, 'index']);
 });

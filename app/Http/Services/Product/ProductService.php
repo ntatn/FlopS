@@ -18,6 +18,9 @@ class ProductService{
         ->get();
     }
     public function show($id){
-        return Product::select('name', 'price_old', 'price', 'thumb', 'description')->where('id', $id)->get();
+        return Product::select('id','name', 'price_old', 'price', 'thumb', 'description')->where('id', $id)->get();
+    }
+    public function showDetail($id){
+        return Product::where('id', $id)->with('menu')->firstOrFail();
     }
 }
