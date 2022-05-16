@@ -1,3 +1,7 @@
+@jquery  
+@toastr_js
+@toastr_render    
+     
      <!-- Footer -->
      <footer class="bg3 p-t-75 p-b-32">
          <div class="container">
@@ -363,3 +367,9 @@
      <!--===============================================================================================-->
      <script src="/template/home/js/main.js"></script>
      <script src="/template/js/main.js"></script>
+
+		@if(count($errors) > 0)
+			@foreach($errors->all() as $error)
+				toastr.error("{{$error}}");
+			@endforeach
+		@endif

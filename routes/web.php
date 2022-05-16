@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\Users\LoginController;
+use App\Http\Controllers\Admin\Users\LogoutController;
+
 // use App\Http\Controllers\Admin\Users\RegisterController;
 use App\Http\Controllers\Admin\MainController;
 use App\Http\Controllers\Admin\MenuController;
@@ -23,6 +25,7 @@ use App\Http\Controllers\DetailController;
 
 Route::prefix('/')->group(function () {
     Route::get('admin/users/login',[LoginController::class,'index'])->name('login');
+    Route::get('admin/users/logout',[LogoutController::class,'logout']);
     
     Route::post('admin/users/login/store',[LoginController::class,'store']);
     Route::get('admin/users/register',[LoginController::class,'viewReg'])->name('register');

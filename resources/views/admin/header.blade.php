@@ -1,3 +1,6 @@
+@jquery
+@toastr_js
+@toastr_render
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -11,5 +14,5 @@
 <link rel="stylesheet" href="/template/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
 <!-- Theme style -->
 <link rel="stylesheet" href="/template/dist/css/adminlte.min.css">
-
+@toastr_css
 @yield('head')
