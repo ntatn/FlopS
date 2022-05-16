@@ -14,10 +14,10 @@
         <div class="header-cart-content flex-w js-pscroll">
             @php $sumPriceCart = 0; @endphp
             <ul class="header-cart-wrapitem w-full">
-                @if (count($products) > 0)
+                @if (!is_null(Illuminate\Support\Facades\Session::get('carts')))
                     @foreach($products as $key => $product)
                         @php
-                            $price = \App\Helpers\Helper::price($product->price_old, $product->price);
+                            $price = \App\Helpers\Helper::price($product->price, $product->price_old);
                             $sumPriceCart += $product->price != 0 ? $product->price : $product->price_old;
                         @endphp
                         <li class="header-cart-item flex-w flex-t m-b-12">

@@ -4,13 +4,15 @@
 namespace App\Http\Services\Cart;
 
 
-use App\Jobs\SendMail;
+use App\Mail\checkoutMail;
 use App\Models\Cart;
 use App\Models\Customer;
 use App\Models\Product;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Mail;
 
 class CartService {
     public function create($request){
@@ -74,7 +76,6 @@ class CartService {
 
             if (is_null($carts))
                 return false;
-
             $customer = Customer::create([
                 'name' => $request->input('name'),
                 'phone' => $request->input('phone'),
@@ -86,11 +87,8 @@ class CartService {
             $this->infoProductCart($carts, $customer->id);
 
             DB::commit();
-            Session::flash('success', 'Đặt Hàng Thành Công');
-
-            #Queue
-            // SendMail::dispatch($request->input('email'))->delay(now()->addSeconds(2));
-
+            Mail::to($request->input('email'))->send(new  checkoutMail($customer));
+            Session::flash('success', 'Đặt Hàng Thành Công, Vui lòng kiểm tra email!');
             Session::forget('carts');
         } catch (\Exception $err) {
             DB::rollBack();

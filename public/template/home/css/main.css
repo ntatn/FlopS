@@ -3331,3 +3331,79 @@ input.num-product::-webkit-inner-spin-button {
   }
 
 }
+
+/* email */
+.mail{
+  max-width:600px;
+  margin: 0 auto;
+}
+.mail__container{
+  padding: 40px;
+  background-color: whitesmoke;
+  
+}
+.text-title{
+  font-size:16px;
+  font-weight:600;
+}
+.text-name-prd{
+  font-size:16px;
+  font-weight:600;
+  max-width: 300px;
+}
+.text-normal{
+  font-size:16px;
+}
+.mail__header-title{
+  font-size:25px;
+  font-weight:600;
+}
+.flex-col{
+  display:flex;
+  flex-direction:column;
+  gap: 10px 0 ;
+}
+.flex-between {
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+}
+.mail-img{
+  width:100px;
+  height:40px;
+  object-fit: cover;
+}
+.border{
+  border-bottom: 3px solid #333;
+}
+.p-20{
+  padding-bottom: 20px;
+}
+.mail-main{
+  font-size:16px;
+  color:purple;
+}
+.text-min{
+  font-size:14px;
+}
+.mail__desc{
+  padding: 15px 0;
+}
+.mail__content-status{
+  display: flex;
+  flex-direction:column;
+  gap: 10px 0;
+}
+.mail__content-main{
+  margin-top: 20px;
+}
+.flex {
+  display:flex;
+  align-items: center;
+  gap : 0 10px;
+}
+.flex-gap{
+  display:flex;
+  flex-direction:column;
+  gap: 0 10px;
+}

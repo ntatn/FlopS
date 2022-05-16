@@ -1,4 +1,5 @@
 @extends('main')
+@include('admin.users.alert')
 @section('content4')
 <div class="container p-t-100">
     <div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
@@ -13,6 +14,7 @@
     </div>
 </div>
 <form class="bg0 p-t-65 p-b-85" method="post">
+@if (count($products) != 0)
     <div class="container">
         <div class="row">
             <div class="col-lg-10 col-xl-7 m-lr-auto m-b-50">
@@ -155,5 +157,6 @@
             </div>
         </div>
     </div>
+    @endif
 </form>
 @endsection

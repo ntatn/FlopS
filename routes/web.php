@@ -53,6 +53,10 @@ Route::prefix('/')->group(function () {
             });
 
             Route::post('upload/services', [UploadController::class, 'store']);
+
+            #Cart
+            Route::get('customers', [\App\Http\Controllers\Admin\CartController::class, 'index']);
+            Route::get('customers/view/{customer}', [\App\Http\Controllers\Admin\CartController::class, 'show']);
         }); 
 
     });
@@ -62,7 +66,7 @@ Route::prefix('/')->group(function () {
     Route::get('/', [App\Http\Controllers\MainController::class, 'index'])->name('homepage');
     Route::get('danh-muc/{id}-{slug}.html',[App\Http\Controllers\MenuController::class, 'index']);
     Route::get('san-pham/{id}-{slug}.html',[DetailController::class, 'index']);
-    Route::post('add-cart',[App\Http\Controllers\CartController::class, 'index']);
+    Route::post('add-cart',[App\Http\Controllers\CartController::class, 'index'])->middleware('auth');
     Route::get('carts',[App\Http\Controllers\CartController::class, 'show']);
     Route::post('update-cart',[App\Http\Controllers\CartController::class, 'update']);
     Route::get('carts/delete/{id}', [App\Http\Controllers\CartController::class, 'remove']);
